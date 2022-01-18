@@ -10,6 +10,7 @@ public class order_line extends Item  {
 	private int Id;
 
 	private int Qan;
+	public order_line() {}
 	
 public order_line( int NO_order,String Id, String Iname, String price,int Qan) {
 		super(Id, Iname, price);

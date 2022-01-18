@@ -1,5 +1,6 @@
 package DBpr;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,12 +10,17 @@ import javax.swing.JOptionPane;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class FXMLController2 implements Initializable {
 	public static void main(String[] args) {
@@ -51,54 +57,65 @@ public class FXMLController2 implements Initializable {
     private TextField qan;
    
     
-    java.sql.Connection conn =null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-    public void Add_Order (){    
-        conn = connenc.ConnectDb();
-        String sql = "INSERT INTO order_line (NO_order,  Id, Qan) VALUES (?,?,?)";
-        		
-        
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, order.getText());
-            //pst.setString(2, name.getText());
-            pst.setString(2, id.getText());
-           // pst.setString(4, price.getText());
-            pst.setString(3, qan.getText());
-           
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "order Add succes");
-           
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+
+    
+    
+    
+    @FXML
+    void popadd(ActionEvent event) throws IOException {
+   	  FXMLLoader root1 =new  FXMLLoader(getClass().getResource("orderadd.fxml"));
+  	  Parent root2=root1.load();
+  				// TODO Auto-generated catch block
+  				
+  			
+          	Stage stage = new Stage();
+          	stage.setTitle("ADD Order");
+          	stage.setScene(new Scene(root2));
+          	stage.show();
+
+    }
+    
+    @FXML
+    void orderdel(ActionEvent event) throws IOException {
+    	  FXMLLoader root1 =new  FXMLLoader(getClass().getResource("orderdel.fxml"));
+      	  Parent root2=root1.load();
+      				// TODO Auto-generated catch block
+      				
+      			
+              	Stage stage = new Stage();
+              	stage.setTitle("DELETE Order ");
+              	stage.setScene(new Scene(root2));
+              	stage.show();
+    }
+    
+    @FXML
+    void orderup(ActionEvent event) throws IOException {
+    	 FXMLLoader root1 =new  FXMLLoader(getClass().getResource("orderupdate.fxml"));
+     	  Parent root2=root1.load();
+     				// TODO Auto-generated catch block
+     				
+     			
+             	Stage stage = new Stage();
+             	stage.setTitle("UPDATE Order");
+             	stage.setScene(new Scene(root2));
+             	stage.show();
     }
     
     
-    public void Delete_Order (){    
-        conn = connenc.ConnectDb();
-        String sql = "DELETE FROM order_line WHERE (NO_order = ?) and (Id = ?)";
-        		
-        
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, order.getText());
-            //pst.setString(2, name.getText());
-            pst.setString(2, id.getText());
-           // pst.setString(4, price.getText());
-           
-           
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "order Delete succes");
-           
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+    @FXML
+    void delall(ActionEvent event) throws IOException {
+   	 FXMLLoader root1 =new  FXMLLoader(getClass().getResource("orderall.fxml"));
+	  Parent root2=root1.load();
+				// TODO Auto-generated catch block
+				
+			
+        	Stage stage = new Stage();
+        	stage.setTitle("DElETE Order");
+        	stage.setScene(new Scene(root2));
+        	stage.show();
     }
     
+  
     
     
 	

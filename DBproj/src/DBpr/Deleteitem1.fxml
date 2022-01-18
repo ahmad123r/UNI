@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="310.0" prefWidth="482.0" style="-fx-background-image: url('ra.png');" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="DBpr.addordercont">
+   <children>
+      <TitledPane animated="false" layoutY="1.0" prefHeight="310.0" prefWidth="482.0" text="DELETE PAGE">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="100.0" layoutY="184.0" mnemonicParsing="false" onAction="#Delete_users" prefHeight="25.0" prefWidth="199.0" text="DELETE" />
+                  <Label layoutX="53.0" layoutY="52.0" prefHeight="28.0" prefWidth="72.0" text="Item ID:">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="id" layoutX="125.0" layoutY="54.0" promptText="ID" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

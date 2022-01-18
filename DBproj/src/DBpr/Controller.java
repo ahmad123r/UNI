@@ -42,8 +42,12 @@ public class Controller extends Application {
 	
 	   @Override
 	    public void start(Stage stage) throws Exception {
-	      //  Parent root = FXMLLoader.load(getClass().getResource("Itemscene.fxml"));
-	        Parent root2 = FXMLLoader.load(getClass().getResource("orderlinescene.fxml"));
+		 
+	      // Parent root2 = FXMLLoader.load(getClass().getResource("Itemscene.fxml"));
+	       //Parent root2 = FXMLLoader.load(getClass().getResource("orderlinescene.fxml"));
+		  // Parent root2 = FXMLLoader.load(getClass().getResource("customerscene.fxml"));
+		  //Parent root2 = FXMLLoader.load(getClass().getResource("salesorder.fxml"));
+		   Parent root2 = FXMLLoader.load(getClass().getResource("MainView.fxml"));
 	        
 	      //  Scene scene = new Scene(root);
 	        Scene scene1 = new Scene(root2);
@@ -51,9 +55,11 @@ public class Controller extends Application {
 	        stage.setScene(scene1);
 	        stage.show();
 	    }
-
+	  
+	  
 	  
 	    public static void main(String[] args) {
+	    	
 	        launch(args);
 	    } 
 

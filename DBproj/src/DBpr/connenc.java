@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author amir
- */
+
 public class connenc {
     
     Connection conn = null;
@@ -40,6 +37,40 @@ public class connenc {
         } catch (Exception e) {
         }
         return list;
+    }
+    public static ObservableList<customer> getDatacos(){
+        Connection conn = ConnectDb();
+        ObservableList<customer> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from customer");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){   
+                list.add(new customer(rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(1)));               
+            }
+        } catch (Exception e) {
+        	System.out.println("hel yeah");
+        }
+        return list;
+    }
+    
+    public static ObservableList<saels_oreder> getDatasales(){
+    	 Connection conn = ConnectDb();
+         ObservableList<saels_oreder> list = FXCollections.observableArrayList();
+         try {
+             PreparedStatement ps = conn.prepareStatement("select saels_oreder.NO_order, SUM(item.price * order_line.Qan) as Total ,saels_oreder.Cid,saels_oreder.ODate\r\n"
+             		+ " from item,saels_oreder ,order_line \r\n"
+             		+ " where item.Id=order_line.Id and order_line.NO_order=saels_oreder.NO_order\r\n"
+             		+ " GROUP BY NO_order");
+             ResultSet rs = ps.executeQuery();
+             
+             while (rs.next()){   
+                 list.add(new saels_oreder(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getDate(4)));               
+             }
+         } catch (Exception e) {
+         	System.out.println("hel yeah");
+         }
+         return list;
     }
     
 }

@@ -1,5 +1,6 @@
 package DBpr;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,19 +12,24 @@ import com.sun.jdi.connect.spi.Connection;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
 
 public class FXMLController implements Initializable {
-	public static void main(String[] args) {
-		Application.launch(args);
-	}
+	
 
     @FXML
     private TableColumn<Item, String> item_id;
@@ -40,45 +46,60 @@ public class FXMLController implements Initializable {
     @FXML
     private TextField Id;
 
-    @FXML
-    private TextField Iname;
-    @FXML
-    private TextField price;
+
     
-    public void Add_users (){    
-        conn = connenc.ConnectDb();
-        String sql = "INSERT INTO item (Iname, Id, price) VALUES(?,?,?) ";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, Id.getText());
-            pst.setString(2, Iname.getText());
-            pst.setString(3, price.getText());
-           
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Users Add succes");
-           
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+ 
+    
+    
+    @FXML
+ public   void ahmad(ActionEvent event) throws IOException {
+  	  FXMLLoader root1 =new  FXMLLoader(getClass().getResource("additem.fxml"));
+  	  Parent root2=root1.load();
+  				// TODO Auto-generated catch block
+  				
+
+          	Stage stage = new Stage();
+          	stage.setTitle("ADD new Item");
+          	stage.setScene(new Scene(root2));
+          	stage.show();
+          	
+
     }
-    public void Delete_users (){    
-        conn = connenc.ConnectDb();
-        
-       
-        String sql = "DELETE FROM item WHERE (Id =?)";
-        try {
-          
-        	pst = conn.prepareStatement(sql);
-        	 pst.setString(1, Iname.getText());
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Item Delete succes");
-           
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }	
+    @FXML
+    void delo(ActionEvent event) throws IOException {
+   	  FXMLLoader root1 =new  FXMLLoader(getClass().getResource("Deleteitem1.fxml"));
+  	  Parent root2=root1.load();
+  				// TODO Auto-generated catch block
+  				
+  			
+          	Stage stage = new Stage();
+          	stage.setTitle("Delete  Item");
+          	stage.setScene(new Scene(root2));
+          	stage.show();
+    }
+
+    @FXML
+    void update(ActionEvent event) throws IOException {
+   	  FXMLLoader root1 =new  FXMLLoader(getClass().getResource("updateitem.fxml"));
+  	  Parent root2=root1.load();
+  				// TODO Auto-generated catch block
+  				
+  			
+          	Stage stage = new Stage();
+          	stage.setTitle("Update Item");
+          	stage.setScene(new Scene(root2));
+          	stage.show();
+
+    }
+
+    
+    
+
+
+ 
+    
+    
+
     
     ObservableList<Item> listM;
     ObservableList<Item> dataList;

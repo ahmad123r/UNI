@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DBpr.FXMLController4">
+   <children>
+      <HBox layoutX="20.0" layoutY="347.0" prefHeight="39.0" prefWidth="544.0" style="-fx-spacing: 100;" />
+      <ImageView fitHeight="400.0" fitWidth="606.0" layoutX="-1.0" layoutY="-3.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../../OneDrive/سطح%20المكتب/istockphoto-1151115902-612x612.jpg" />
+         </image>
+      </ImageView>
+      <TableView id="root" fx:id="tabels" layoutX="-1.0" opacity="0.9" prefHeight="329.0" prefWidth="606.0">
+         <columns>
+            <TableColumn fx:id="orderno" prefWidth="178.0" text="OrderNO" />
+            <TableColumn fx:id="total" prefWidth="137.0" text="Total" />
+            <TableColumn fx:id="cus" prefWidth="157.0" text="CustomerID" />
+            <TableColumn fx:id="date" prefWidth="127.0" text="Date" />
+         </columns>
+      </TableView>
+      <Button layoutX="389.0" layoutY="354.0" mnemonicParsing="false" onAction="#salesadd" prefHeight="25.0" prefWidth="101.0" text="ADD" />
+      <Button layoutX="200.0" layoutY="354.0" mnemonicParsing="false" onAction="#delelte" prefHeight="25.0" prefWidth="128.0" text="DELETE" />
+      <Button layoutX="37.0" layoutY="354.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="121.0" text="UPDATE" />
+   </children>
+</AnchorPane>
