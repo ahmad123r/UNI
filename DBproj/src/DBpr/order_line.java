@@ -1,8 +1,6 @@
 package DBpr;
 
-import java.util.ArrayList;
 
-import com.mysql.fabric.xmlrpc.base.Array;
 
 public class order_line extends Item  {
 

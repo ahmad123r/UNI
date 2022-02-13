@@ -1,32 +1,13 @@
 package DBpr;
-import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Properties;
-import java.util.ResourceBundle;
 
-import com.sun.javafx.collections.ImmutableObservableList;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+
 import javafx.stage.Stage;
-import DBpr.Item;
 
 
 
@@ -35,22 +16,26 @@ import DBpr.Item;
 
 public class Controller extends Application {
 	
+	public static Stage stage = new Stage();
+	public  Scene scene1;
 	
+	public  Parent root2;
 	
 
 	
 	
 	   @Override
-	    public void start(Stage stage) throws Exception {
+	    public void start(Stage stage1) throws Exception {
 		 
 	      // Parent root2 = FXMLLoader.load(getClass().getResource("Itemscene.fxml"));
 	       //Parent root2 = FXMLLoader.load(getClass().getResource("orderlinescene.fxml"));
 		  // Parent root2 = FXMLLoader.load(getClass().getResource("customerscene.fxml"));
 		  //Parent root2 = FXMLLoader.load(getClass().getResource("salesorder.fxml"));
-		   Parent root2 = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+		    root2 = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+		    stage=stage1;
 	        
 	      //  Scene scene = new Scene(root);
-	        Scene scene1 = new Scene(root2);
+	         scene1 = new Scene(root2);
 	        //stage.setScene(scene);
 	        stage.setScene(scene1);
 	        stage.show();

@@ -1,6 +1,6 @@
 package DBpr;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,15 +11,14 @@ import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+
 
 public class addsales implements Initializable{
 
@@ -138,20 +137,20 @@ public class addsales implements Initializable{
 	        
 	    }
 	   
-	   public void tot() {
-		   
-		   order_line mn= new order_line();
-		   Item item=new Item();
-		   System.out.println(item.getId()+"><><><><><><");
-		   
-		   
-	   }
+//	   public void tot() {
+//		   
+//		   order_line mn= new order_line();
+//		   Item item=new Item();
+//		   System.out.println(item.getId()+"><><><><><><");
+//		   
+//		   
+//	   }
 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		cus.setText("1");
-		tot();
+		//cus.setText("1");
+
 		String sql="SELECT NO_order FROM order_line GROUP BY NO_order ORDER BY NO_order";
 		 
 		 conn = connenc.ConnectDb();

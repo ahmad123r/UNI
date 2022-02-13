@@ -2,11 +2,10 @@ package DBpr;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
+
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
